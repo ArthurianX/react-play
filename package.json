@@ -60,12 +60,15 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "beautiful-react-redux": "^2.1.0",
     "classnames": "^2.2.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.4"
+    "redux-actions": "^2.6.4",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.5"
   }
 }

@@ -72,6 +72,10 @@ html .clearCompleted:active {
   text-decoration: underline;
 }
 
+.exportAll {
+  margin-left: 6px
+}
+
 @media (max-width: 430px) {
   .normal {
     height: 50px;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as style from './style.css';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import { connect } from 'beautiful-react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import { TodoActions } from 'app/actions';
@@ -28,7 +29,7 @@ export namespace App {
 }
 
 @connect(
-  (state: RootState, ownProps): Pick<App.Props, 'todos' | 'filter'> => {
+  (state: RootState, ownProps: any): Pick<App.Props, 'todos' | 'filter'> => {
     const hash = ownProps.location && ownProps.location.hash.replace('#', '');
     const filter = FILTER_VALUES.find((value) => value === hash) || TodoModel.Filter.SHOW_ALL;
     return { todos: state.todos, filter };
@@ -45,6 +46,7 @@ export class App extends React.Component<App.Props> {
   constructor(props: App.Props, context?: any) {
     super(props, context);
     this.handleClearCompleted = this.handleClearCompleted.bind(this);
+    this.handleExportAll = this.handleExportAll.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
@@ -53,6 +55,11 @@ export class App extends React.Component<App.Props> {
     if (hasCompletedTodo) {
       this.props.actions.clearCompleted();
     }
+  }
+
+  handleExportAll(): void {
+    // const hasCompletedTodo = this.props.todos.some((todo) => todo.completed || false);
+    this.props.actions.exportAll(this.props.todos);
   }
 
   handleFilterChange(filter: TodoModel.Filter): void {
@@ -74,6 +81,7 @@ export class App extends React.Component<App.Props> {
           activeCount={activeCount}
           completedCount={completedCount}
           onClickClearCompleted={this.handleClearCompleted}
+          onClickExportAll={this.handleExportAll}
           onClickFilter={this.handleFilterChange}
         />
       </div>

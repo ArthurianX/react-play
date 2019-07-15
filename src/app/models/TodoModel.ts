@@ -1,3 +1,5 @@
+import { Action } from "redux";
+
 /** TodoMVC model definitions **/
 
 export interface TodoModel {
@@ -13,3 +15,10 @@ export namespace TodoModel {
     SHOW_COMPLETED = 'completed'
   }
 }
+
+export interface CustomAction extends Action {
+  type: string;
+  payload?: any;
+}
+
+

@@ -16,6 +16,7 @@ export namespace Footer {
     completedCount?: number;
     onClickFilter: (filter: TodoModel.Filter) => any;
     onClickClearCompleted: () => any;
+    onClickExportAll: () => any;
   }
 }
 
@@ -62,6 +63,17 @@ export class Footer extends React.Component<Footer.Props> {
     }
   }
 
+  renderExportAllButton(): JSX.Element | void {
+    const { onClickExportAll } = this.props;
+    return (
+      <button
+        className={style.clearCompleted + ' ' + style.exportAll}
+        onClick={onClickExportAll}
+        children={'Export CSV'}
+      />
+    );
+  }
+
   render() {
     return (
       <footer className={style.normal}>
@@ -71,6 +83,7 @@ export class Footer extends React.Component<Footer.Props> {
             <li key={key} children={this.renderFilterLink(TodoModel.Filter[key])} />
           ))}
         </ul>
+        {this.renderExportAllButton()}
         {this.renderClearButton()}
       </footer>
     );
