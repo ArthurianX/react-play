@@ -77,6 +77,11 @@ export class Footer extends React.Component<Footer.Props> {
   render() {
     return (
       <footer className={style.normal}>
+        {/*<LottieView
+          progress={animationProgress}
+          resizeMode={'center'}
+          source={Animations.themeSwitcher}
+        />*/}
         {this.renderTodoCount()}
         <ul className={style.filters}>
           {(Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map((key) => (

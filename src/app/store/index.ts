@@ -13,6 +13,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export function configureStore(initialState?: RootState): { store: Store<PersistorState>; persistor: Persistor} {
+  console.log('initialState', initialState);
   let middleware = applyMiddleware(logger, sagaMiddleware);
 
   if (process.env.NODE_ENV !== 'production') {

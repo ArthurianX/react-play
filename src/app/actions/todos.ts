@@ -9,7 +9,8 @@ export namespace TodoActions {
     COMPLETE_TODO = 'COMPLETE_TODO',
     COMPLETE_ALL = 'COMPLETE_ALL',
     CLEAR_COMPLETED = 'CLEAR_COMPLETED',
-    EXPORT_ALL = 'EXPORT_ALL'
+    EXPORT_ALL = 'EXPORT_ALL',
+    TOGGLE_THEME = 'TOGGLE_THEME'
   }
 
   export const addTodo = createAction<PartialPick<TodoModel, 'text'>>(Type.ADD_TODO);
@@ -19,6 +20,7 @@ export namespace TodoActions {
   export const completeAll = createAction(Type.COMPLETE_ALL);
   export const clearCompleted = createAction(Type.CLEAR_COMPLETED);
   export const exportAll = createAction<TodoModel[]>(Type.EXPORT_ALL);
+  export const toggleTheme = createAction<boolean>(Type.TOGGLE_THEME);
 }
 
 export type TodoActions = Omit<typeof TodoActions, 'Type'>;
