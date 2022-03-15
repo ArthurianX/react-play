@@ -71,7 +71,7 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.5",
     "lottie-react-web": "^2.1.4",
-    "lodash-es": "^4.17.14",
+    "lodash-es": "^4.17.21",
     "gsap": "^2.1.3"
   }
 }
